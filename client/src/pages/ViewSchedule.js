@@ -1,8 +1,9 @@
 import React from 'react';
+import "./ViewSchedule.css";
  
 const ViewSchedule = () => {
     return (
-        <h1>VIEW YOUR GODDAMN SCHEDULE</h1>
+        <h1 id= "h1">View Schedule Below!</h1>
     );
 };
  

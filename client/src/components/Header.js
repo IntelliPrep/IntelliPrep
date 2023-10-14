@@ -1,5 +1,5 @@
 import React from 'react';
-import {NavLink, Nav, NavMenu} from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 // import Education from '../education_logo.png';
 // import Create from '../create_icon.png';
 // import Schedule from '../schedule_icon.png';

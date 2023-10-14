@@ -21,21 +21,17 @@ const InputData = () => {
     }
 
     return (
-        <>
-        <div id="divone">
-            <h1 id="addschedule">Add Schedule</h1>
-        </div>
-        
-        <div className='name'>
-            <label for="testname">Test Name:</label>
-            <input type="text" value={sendData} onChange={(e) => setSendData(e.target.value)} name="testname"/>
-            <button onClick={getProfileData}>Click me</button>
-        </div>
-        {profileData && <div>
-              <p>Profile name: {profileData.profile_name}</p>
-              <p>About me: {profileData.about_me}</p>
+        <>  
+            <div className='name'>
+                <label for="testname">Test Name:</label>
+                <input type="text" value={sendData} onChange={(e) => setSendData(e.target.value)} name="testname"/>
+                <button onClick={getProfileData}>Click me</button>
             </div>
-        }
+            {profileData && <div>
+                    <p>Profile name: {profileData.profile_name}</p>
+                    <p>About me: {profileData.about_me}</p>
+                </div>
+            }
 
         </>
 

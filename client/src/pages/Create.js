@@ -1,10 +1,11 @@
 import React from "react";
+import "./Create.css"
  
 const Create = () => {
     return (
         <div>
-            <h1>
-                CREATE A SCHEDULE
+            <h1 id = "h1">
+                Create a Schedule
             </h1>
         </div>
     );
