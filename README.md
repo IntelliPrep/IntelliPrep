@@ -1,2 +1,1 @@
-# code
-All of the code for the project.
+# how the code will be connected
