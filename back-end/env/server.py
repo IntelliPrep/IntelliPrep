@@ -7,13 +7,13 @@ from algorithm import algo
 
 api = Flask(__name__)
 CORS(api)
+
+counter = 0
 @api.route('/algorithm')
 def my_profile():
-    response_body = {
-        "name": "Krish",      
-        "about" :"amogus"
-    }
-    algo.hi()
+    global counter
+    response_body = algo.hi(counter)
+    counter += 1
 
     return response_body
 
