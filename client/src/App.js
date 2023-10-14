@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import axios from "axios";
-import logo from './logo.svg';
 import './App.css';
 import './components/InputData.js'
 import InputData from './components/InputData.js';
@@ -32,10 +31,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Meowa
-        </p>
+        <div><InputData></InputData></div>
 
         {/* new line start*/}
         <p>To get your profile details: </p><button onClick={getData}>Click me</button>
@@ -45,8 +41,6 @@ function App() {
             </div>
         }
          {/* end of new line */}
-
-        <div><InputData></InputData></div>
       </header>
     </div>
   );
