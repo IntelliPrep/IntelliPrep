@@ -14,7 +14,6 @@ def my_profile():
     global counter
     response_body = algo.hi(counter)
     counter += 1
-
     return response_body
 
 @api.route('/algorithmSend', methods=['POST'])

@@ -10,12 +10,12 @@ const Header = () => {
         <>
             <nav>
                 <span>
-                    <NavLink to="/create" activeStyle>
+                    <NavLink to="/create">
                         Create
                     </NavLink>
                 </span>
                 <span>
-                    <NavLink to="/viewschedule" activeStyle>
+                    <NavLink to="/viewschedule">
                         View Schedule
                     </NavLink>
                 </span>
