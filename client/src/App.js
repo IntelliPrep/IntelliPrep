@@ -32,7 +32,6 @@ function App() {
     <div className="App">
       <header className="App-header">
         <div><InputData></InputData></div>
-
         {/* new line start*/}
         <p>To get your profile details: </p><button onClick={getData}>Click me</button>
         {profileData && <div>
