@@ -11,7 +11,7 @@ const InputData = () => {
     const [sendData, setSendData] = useState('');
     async function getProfileData() {
         try {
-            const response = await axios.post('http://127.0.0.1:5000/algorithmSend', {data: sendData});
+            const response = await axios.post('http://127.0.0.1:5000/algorithmSend', {data: [className, testDate]});
             setProfileData(({
                 profile_name : response.data.name,
                 current_date: response.data.date}));
@@ -19,7 +19,17 @@ const InputData = () => {
             console.error(error.message);
         }
     }
+    const handleFormChange = (index, event) => {
+        let data = [...inputFields]
+        data[index][event.target.name] = event.target.value;
+        setInputFields(data);
+        console.log(inputFields);
+    }
+    const addField = () => {
+        let newfield = {className: '', testDate: ''};
+        setInputFields([...inputFields, newfield]);
 
+    }
     return (
         <>  
             <div className='name'>
@@ -32,6 +42,32 @@ const InputData = () => {
                     <p>Current Date: {profileData.current_date}</p>
                 </div>
             }
+            <div className="app">
+                <form>
+                    {inputFields.map((input, index) => {
+                        return (
+                            <div key={index}>
+                                <input
+                                name='className'
+                                placeholder="className"
+                                value={input.className}
+                                onChange = {event => handleFormChange(index, event)}
+                                />
+                                <input
+                                name='testDate'
+                                type="date"
+                                placeholder='Test Date'
+                                value={input.testDate}
+                                onChange = {event => handleFormChange(index, event)}
+                                />
+
+                            </div>
+
+                        ) 
+                })}
+                </form>
+            </div>
+            <button onClick={addField}> Add More </button>
 
         </>
 
