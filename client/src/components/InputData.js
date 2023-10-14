@@ -2,26 +2,23 @@ import React from 'react'
 import "./InputData.css"
 import axios from "axios"
 import { useState } from 'react'
+import {  } from "react-async"
 
 const InputData = () => {
+    const client = axios.create({ baseURL: "http://127.0.0.1:5000"});
+
     const [profileData, setProfileData] = useState(null)
-    function getData() {
-        axios({
-          method: "GET",  
-          url:"http://127.0.0.1:5000/algorithm",
-        })
-        .then((response) => {
-          const res = response.data
-          setProfileData(({
-            profile_name: res.name,
-            about_me: res.about}))
-        }).catch((error) => {
-          if (error.response) {
-            console.log(error.response)
-            console.log(error.response.status)
-            console.log(error.response.headers)
-            }
-    })}
+    const [sendData, setSendData] = useState(null);
+    async function getProfileData() {
+        try {
+            const response = await axios.post('http://127.0.0.1:5000/algorithmSend', {data: sendData});
+            setProfileData(({
+                profile_name : response.data.name,
+                about_me: response.data.about}));
+        } catch (error) {
+            console.error(error.message);
+        }
+    }
 
     return (
         <>
@@ -31,8 +28,8 @@ const InputData = () => {
         
         <div className='name'>
             <label for="testname">Test Name:</label>
-            <input type="text" name="testname" />
-            <button onClick={getData}>Click me</button>
+            <input type="text" value={sendData} onChange={(e) => setSendData(e.target.value)} name="testname"/>
+            <button onClick={getProfileData}>Click me</button>
         </div>
         {profileData && <div>
               <p>Profile name: {profileData.profile_name}</p>
