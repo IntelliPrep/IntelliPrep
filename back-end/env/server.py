@@ -10,7 +10,7 @@ CORS(api)
 @api.route('/algorithm')
 def my_profile():
     response_body = {
-        "name": "Krish",
+        "name": "Krish",      
         "about" :"amogus"
     }
     algo.hi()
