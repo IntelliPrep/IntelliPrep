@@ -1,6 +1,9 @@
 from flask_cors import CORS
 from flask import Flask
 from flask import request
+import sys
+
+from algorithm import algo
 
 api = Flask(__name__)
 CORS(api)
@@ -10,6 +13,7 @@ def my_profile():
         "name": "Krish",
         "about" :"amogus"
     }
+    algo.hi()
 
     return response_body
 
