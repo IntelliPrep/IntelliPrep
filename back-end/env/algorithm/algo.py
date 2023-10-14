@@ -1,7 +1,6 @@
 def hi(inputString):
-    newString = "Hewwo" + inputString
     return {
-        "name": "newString",      
+        "name": inputString,      
         "about" : "test"
     }
     
