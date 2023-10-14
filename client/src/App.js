@@ -1,16 +1,23 @@
-import { useState } from 'react'
-import axios from "axios";
 import './App.css';
-import './components/InputData.js'
 import InputData from './components/InputData.js';
-import './components/Header.js';
 import Header from './components/Header.js';
+import Create from './pages/Create.js';
+import ViewSchedule from './pages/ViewSchedule.js';
+import { BrowserRouter as Router, Routes, Route }
+    from 'react-router-dom';
+
 
 function App() {
 
   return (
     <div className="App">
-      <header className="App-header"><Header></Header></header>
+      <Router>
+            <Header />
+            <Routes>
+                <Route path='/create' element={<Create />} />
+                <Route path='/viewschedule' element={<ViewSchedule />} />
+            </Routes>
+        </Router>
       <body>
         <div><InputData></InputData></div>
       </body>
