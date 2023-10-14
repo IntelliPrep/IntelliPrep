@@ -1,11 +1,10 @@
-<<<<<<< Updated upstream
 import json
 from datetime import date
 
 def hi(inputString):
     return {
         "name": inputString,      
-        "date" : date.today()
+        "date" : "date.today()"
     }
 
 def create_schedule(test_array, weekday_list, weekend_list):
@@ -41,13 +40,4 @@ def create_schedule(test_array, weekday_list, weekend_list):
 
     
 if __name__ == "__main__" and __package__ is None: # idek if this is needed
-=======
-def hi(inputString, inputString2):
-    return {
-        "name": inputString,      
-        "about" : inputString2
-    }
-
-if __name__ == "__main__" and __package__ is None: #idek if this is needed
->>>>>>> Stashed changes
     __package__ = ".code.backend.algorithm.algo"
