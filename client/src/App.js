@@ -11,7 +11,7 @@ function App() {
   function getData() {
     axios({
       method: "GET",  
-      url:"http://127.0.0.1:5000/profile",
+      url:"http://127.0.0.1:5000/algorithm",
     })
     .then((response) => {
       const res =response.data
