@@ -2,6 +2,8 @@ import { useState } from 'react'
 import axios from "axios";
 import logo from './logo.svg';
 import './App.css';
+import './components/InputData.js'
+import InputData from './components/InputData.js';
 
 function App() {
 
@@ -43,6 +45,8 @@ function App() {
             </div>
         }
          {/* end of new line */}
+
+        <div><InputData></InputData></div>
       </header>
     </div>
   );
