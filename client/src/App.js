@@ -6,9 +6,6 @@ import InputData from './components/InputData.js';
 
 function App() {
 
-   // new line start
-  const [profileData, setProfileData] = useState(null)
-
   return (
     <div className="App">
       <header className="App-header">
