@@ -3,6 +3,8 @@ import axios from "axios";
 import './App.css';
 import './components/InputData.js'
 import InputData from './components/InputData.js';
+import './components/Header.js';
+import Header from './components/Header.js';
 
 function App() {
 
@@ -30,7 +32,8 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
+      <header className="App-header"><Header></Header></header>
+      <body>
         <div><InputData></InputData></div>
         {/* new line start*/}
         <p>To get your profile details: </p><button onClick={getData}>Click me</button>
@@ -40,7 +43,7 @@ function App() {
             </div>
         }
          {/* end of new line */}
-      </header>
+      </body>
     </div>
   );
 }

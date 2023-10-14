@@ -5,7 +5,7 @@ const InputData = () => {
     return (
         <>
         <div id="divone">
-            <h2 id="addschedule">Add Schedule</h2>
+            <h1 id="addschedule">Add Schedule</h1>
         </div>
         
         <div className='name'>
