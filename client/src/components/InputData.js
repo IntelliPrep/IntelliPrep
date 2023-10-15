@@ -1,9 +1,9 @@
-import React from 'react'
+import React, {useEffect, useState } from 'react'
 import "./InputData.css"
 import axios from "axios"
-import { useState } from 'react'
 import {  } from "react-async"
-import createEvent from "./event.js"
+import { gapi, } from "gapi-script"
+
 
 const InputData = () => {
 
@@ -17,21 +17,85 @@ const InputData = () => {
 
 
     const [sendData, setSendData] = useState('');
-    var value;
+
+    
+    
+
 
     async function getScheduleData() {
+
         try {
             const response = await axios.post('http://127.0.0.1:5000/algorithmSend', [inputFields, [weekday1, weekday2], [weekend1, weekend2]]);
-            for (let i = 0; i < response.data.length; i++) {
-                console.log("hola");
-                console.log(response.data[i][0], response.data[i][1], response.data[i][2]);
-                /*createEvent(response.data[i][0], response.data[i][1], response.data[i][2]);*/
+            console.log(response.data);
+            for(let i = 0; i < response.data.length; i++) {
+                createEvent(response.data[i][0], response.data[i][1], response.data[i][2]);
+                //console.log(response.data[i][0], response.data[i][1], response.data[i][2]);
+                //console.log('\n')
             }
-            createEvent(response.data.name, response.data.date, response.data.date);
         } catch (error) {   
             console.error(error.message);
         }
     }
+    function createEvent(newSummary, eventStartTime, eventEndTime) {
+        const calendarID = "425283682828-qn5idtnkss94e5hv94abuks7et6r1q7e.apps.googleusercontent.com";
+        const apiKey = "AIzaSyDDeY3WO3s7EbWvL96YS5t2lVG3i4e4N7I";
+        //console.log(eventStartTime);
+        eventStartTime = new Date(eventStartTime)
+        eventEndTime = new Date(eventEndTime)
+        //console.log(eventStartTime);
+
+
+        var event = {
+            summary: newSummary,
+            start: {
+              dateTime: eventStartTime,
+              timeZone: "America/New_York",
+            },
+            end: {
+              dateTime: eventEndTime,
+              timeZone: "America/New_York",
+            },
+            reminders: {
+              useDefault: false,
+              overrides: [
+                { method: "email", minutes: 24 * 60 },
+                { method: "popup", minutes: 10 },
+              ],
+            },
+        };
+        addHelper('samadahmed30044@gmail.com', event);
+
+        
+
+
+    }
+    const addHelper = (calendarID, event) => {
+        const accessToken = "ya29.a0AfB_byD8D1U4mRSbo6XFuTgfGiaGHR86Et5x_NM7icumn7smSbvdnspczAY-ZID5lzM7Q1VbwRVCSYvDoO1taGYCzdXd81wpJO629RVOn4miTTrKb9JkPZiUerJelZcIjK5c9zVWxZjj9kL4yTLr0ziZBdzQT5r_BtXGaCgYKASsSARMSFQGOcNnCKofx4xsLepakDq20J5nLNA0171";
+        function initiate() {
+          gapi.client
+            .request({
+              path: `https://www.googleapis.com/calendar/v3/calendars/${calendarID}/events`,
+              method: "POST",
+              body: event,
+              headers: {
+                "Content-type": "application/json",
+                Authorization: `Bearer ${accessToken}`,
+              },
+            })
+            .then(
+              (response) => {
+                return [true, response];
+              },
+              function (err) {
+                console.log(err);
+                return [false, err];
+              }
+            );
+        }
+        gapi.load("client", initiate);
+      };
+
+
     const handleFormChange = (index, event) => {
         let data = [...inputFields]
             data[index][event.target.name] = event.target.value;
@@ -43,7 +107,6 @@ const InputData = () => {
         setInputFields([...inputFields, newfield]);
 
     }
-
 
     return (
         <>
