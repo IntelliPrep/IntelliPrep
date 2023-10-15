@@ -19,4 +19,6 @@ test_array = [test1, test2]
 weekday_array = ["3:30", "11:49"]
 weekend_array = ["9:13", "3:10"]
 
-algo.create_schedule(test_array, weekday_array, weekend_array, date.today())
+arr = algo.create_schedule(test_array, weekday_array, weekend_array, date.today())
+
+print(arr)
