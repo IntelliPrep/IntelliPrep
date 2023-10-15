@@ -191,7 +191,7 @@ const InputData = () => {
                 <label for="weekday">Weekday:</label>
                 <input type="time" name="weekday1" id = "weekday" onChange={(e) => setWeekday1(e.target.value)}/>
                 <input type="time" name="weekday2" id = "weekday" onChange={(e) => setWeekday2(e.target.value )}/><br></br>
-                <button onClick={getScheduleData}>Click me</button>
+                <button onClick={getScheduleData}>Create Schedule</button>
             </field>
 
             </div>
