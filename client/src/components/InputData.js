@@ -22,8 +22,11 @@ const InputData = () => {
     async function getScheduleData() {
         try {
             const response = await axios.post('http://127.0.0.1:5000/algorithmSend', [inputFields, [weekday1, weekday2], [weekend1, weekend2]]);
-            console.log(response.data.name);
-            console.log(response)
+            for (let i = 0; i < response.data.length; i++) {
+                console.log("hola");
+                console.log(response.data[i][0], response.data[i][1], response.data[i][2]);
+                /*createEvent(response.data[i][0], response.data[i][1], response.data[i][2]);*/
+            }
             createEvent(response.data.name, response.data.date, response.data.date);
         } catch (error) {   
             console.error(error.message);
@@ -33,7 +36,6 @@ const InputData = () => {
         let data = [...inputFields]
             data[index][event.target.name] = event.target.value;
             setInputFields(data);
-            console.log(inputFields);
 
     }
     const addField = () => {

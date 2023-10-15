@@ -45,7 +45,7 @@ function createEvent(summary, eventStartTime, eventEndTime) {
         resource: {
             timeMin: eventStartTime,
             timeMax: eventEndTime,
-            timeZone: 'America/Denver',
+            timeZone: 'America/New_York',
             /*array of calendars you are checking */
             items: [{ id: 'primary' }], 
             },

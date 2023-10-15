@@ -2,6 +2,7 @@ from flask_cors import CORS
 from flask import Flask
 from flask import request, jsonify
 import sys
+from datetime import date
 
 from algorithm import algo
 
@@ -28,12 +29,6 @@ def receive_data():
             data[x]['priorities'] = data[x]['priorities'].split(',')
             if data[x]['name'] == '':
                 data.remove(data[x])
-        print(data)
-        print(weekendTime)
-        print(weekdayTime)
+    return algo.create_schedule(data, weekdayTime, weekendTime, date.today())
         
-        return {
-            "name": 'a',      
-            "date" : "errorwithdatehere"
-        }   
-            
+
