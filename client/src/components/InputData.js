@@ -17,6 +17,7 @@ const InputData = () => {
 
 
     const [sendData, setSendData] = useState('');
+    let number_val = 1;
 
 
     async function getScheduleData() {
@@ -43,39 +44,71 @@ const InputData = () => {
         setInputFields([...inputFields, newfield]);
 
     }
+
+    function increment() {
+        number_val = number_val + 1;
+    }
+
     return (
-        <>  
+        <>
+        <html>
+            <head>
+                <meta charset="utf-8"></meta>
+                <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+                <title>Create Schedule</title>
+                <link rel="stylesheet" href="https://codepen.io/gymratpacks/pen/VKzBEp#0"/>
+                <link href='https://fonts.googleapis.com/css?family=Nunito:400,300' rel='stylesheet' type='text/css'/>
+                <link rel="stylesheet" href="./InputData.css"/>
+            </head>
+       
+        <div class="row">
+    <div class="col-md-12">
+        <h1> Create Schedule </h1>
             <div className="app">
-                <div className="title">Welcome! Please Enter Your Schedule Information</div>
                 <form>
                     {inputFields.map((input, index) => {
                         return (
                             <div key={index}>
+                                <fieldset>
+                                <legend><span class="number">{number_val}</span> Test Information</legend>
+                                
+                                <label for="name">Class Name:</label>
                                 <input
                                 name='name'
+                                id='name'
                                 placeholder="className"
                                 value={input.name}
                                 onChange = {event => handleFormChange(index, event)}
                                 />
+
+                                <label for="date">Test Date:</label>
                                 <input
                                 name='date'
                                 type="date"
+                                id='date'
                                 placeholder='Test Date'
                                 value={input.date}
                                 onChange = {event => handleFormChange(index, event)}
                                 />
+
+                                <label for="topics">Topic List:</label>
                                 <input
                                 name='topics'
+                                id='topics'
                                 placeholder="Topic List"
                                 value={input.topics}
                                 onChange = {event => handleFormChange(index, event)}
                                 />
+
+                                <label for="priorities">Priorities:</label>
                                 <input
                                 name='priorities'
+                                id='priorities'
                                 placeholder="Priority List"
                                 value={input.priorities}
                                 onChange = {event => handleFormChange(index, event)}
                                 />
+                                </fieldset>
 
                             </div>
 
@@ -83,16 +116,22 @@ const InputData = () => {
                 })}
                 </form>
             </div>
-            <button onClick={addField}> Add More </button> <br></br>
-            <h1>Please from what times you are Available! </h1>
-            <p> Weekends:</p>
-            <input type="time" name="weekend1" onChange={(e) => setWeekend1(e.target.value)}/>
-            <input type="time" name="weekend2" onChange={(e) => setWeekend2(e.target.value )}/> <br></br>
-            <p> Weekdays:</p>
-            <input type="time" name="weekday1" onChange={(e) => setWeekday1(e.target.value)}/>
-            <input type="time" name="weekday2" onChange={(e) => setWeekday2(e.target.value )}/><br></br>
-            <button onClick={getScheduleData}>Click me</button>
+            </div>
+            </div>
+            <field>
+                <button onclick = "increment()" onClick={addField} > Add Another Test </button> <br></br>
+                <h1>Please input what times you are available! </h1>
+                <label for="weekend">Weekend:</label>
+                <input type="time" name="weekend1" id="weekend" onChange={(e) => setWeekend1(e.target.value)}/>
+                <input type="time" name="weekend2" id="weekend" onChange={(e) => setWeekend2(e.target.value )}/> <br></br>
+                <label for="weekday">Weekday:</label>
+                <input type="time" name="weekday1" id = "weekday" onChange={(e) => setWeekday1(e.target.value)}/>
+                <input type="time" name="weekday2" id = "weekday" onChange={(e) => setWeekday2(e.target.value )}/><br></br>
+                <button onClick={getScheduleData}>Click me</button>
+            </field>
+            
 
+        </html>
         </>
 
             

@@ -3,22 +3,25 @@ from datetime import date
 
 test1 = {
   "name": "1554",
-  "date": "2023-10-18",
-  "topics": ["Matrices", "Eigenvalues", "Linear independence"],
-  "priorities": ["Low", "High", "Medium"]
+  "date": "2023-10-17",
+  "topics": ["a", "b"],
+  "priorities": ["Medium", "High"]
 }
+
+"""
 test2 = {
   "name": "1331",
-  "date": "2023-10-17",
+  "date": "2023-11-2",
   "topics": ["Inheritance", "Abstract classes", "Polymorphism", "Visibility"],
   "priorities": ["Medium", "Low", "High", "Low"]
 }
+"""
 
-test_array = [test1, test2]
+test_array = [test1]
 
-weekday_array = ["3:30", "6:30"]
-weekend_array = ["10:30", "12:30"]
+weekday_array = ["16:31", "19:31"]
+weekend_array = ["17:32", "22:32"]
 
 arr = algo.create_schedule(test_array, weekday_array, weekend_array, date.today())
-
+  
 print(arr)

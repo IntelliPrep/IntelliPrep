@@ -7,8 +7,19 @@ import './Header.css';
 
 const Header = () => {
     return (
+        
         <>
-            <nav>
+            <nav className="navigationWrapper">
+                <div className="logoWrapper">
+                    <span className="stylish">Intelli</span>
+                    <span className="logo">Prep</span>
+                </div>
+            <ul className="navigation">
+                <li className="parent"><a className="link" href="/create">Create Schedule</a></li>
+                <li className="parent"><a className="link" href="/viewschedule">View Schedule</a></li>
+            </ul>
+            </nav>
+            {/* <nav>
                 <span>
                     <NavLink to="/create">
                         Create
@@ -19,8 +30,11 @@ const Header = () => {
                         View Schedule
                     </NavLink>
                 </span>
-            </nav>
+            </nav> */}
         </>
+
+        
+
     )
 }
 
