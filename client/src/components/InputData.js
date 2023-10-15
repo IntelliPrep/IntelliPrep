@@ -3,6 +3,7 @@ import "./InputData.css"
 import axios from "axios"
 import { useState } from 'react'
 import {  } from "react-async"
+import createEvent from "./event.js"
 
 const InputData = () => {
 
@@ -14,16 +15,16 @@ const InputData = () => {
     const client = axios.create({ baseURL: "http://127.0.0.1:5000"});
     const [inputFields, setInputFields] = useState([{name: '', date: '', topics: '', priorities: ''}]);
 
-    const [profileData, setProfileData] = useState('')
+
     const [sendData, setSendData] = useState('');
 
 
-    async function getProfileData() {
+    async function getScheduleData() {
         try {
             const response = await axios.post('http://127.0.0.1:5000/algorithmSend', [inputFields, [weekday1, weekday2], [weekend1, weekend2]]);
-            setProfileData(({
-                profile_name : response.data.name,
-                current_date: response.data.date}));
+            console.log(response.data.name);
+            console.log(response)
+            createEvent(response.data.name, response.data.date, response.data.date);
         } catch (error) {   
             console.error(error.message);
         }
@@ -42,15 +43,6 @@ const InputData = () => {
     }
     return (
         <>  
-            <div className='name'>
-                <label htmlFor="testname">Test Name:</label>
-                <input type="text" value={sendData} onChange={(e) => setSendData(e.target.value)} name="testname"/>
-            </div>
-            {profileData && <div>
-                    <p>Profile name: {profileData.profile_name}</p>
-                    <p>Current Date: {profileData.current_date}</p>
-                </div>
-            }
             <div className="app">
                 <div className="title">Welcome! Please Enter Your Schedule Information</div>
                 <form>
@@ -97,7 +89,7 @@ const InputData = () => {
             <p> Weekdays:</p>
             <input type="time" name="weekday1" onChange={(e) => setWeekday1(e.target.value)}/>
             <input type="time" name="weekday2" onChange={(e) => setWeekday2(e.target.value )}/><br></br>
-            <button onClick={getProfileData}>Click me</button>
+            <button onClick={getScheduleData}>Click me</button>
 
         </>
 
