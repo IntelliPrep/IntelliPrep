@@ -19,11 +19,21 @@ def my_profile():
 @api.route('/algorithmSend', methods=['POST'])
 def receive_data():
     if request.method == "POST":
-        data = request.json
-        data = data.get('data')
-        print(type(data), flush=True)
-        classname = data[0]
-        testdate = data[1]
-        return algo.hi(classname, testdate)
+        data = request.json[0]
+        weekdayTime = request.json[1]
+        weekendTime = request.json[2]
+        print(data)
+        for x in range(len(data)):
+            data[x]['topics'] = data[x]['topics'].split(',')
+            data[x]['priorities'] = data[x]['priorities'].split(',')
+            if data[x]['name'] == '':
+                data.remove(data[x])
+        print(data)
+        print(weekendTime)
+        print(weekdayTime)
         
+        return {
+            "name": 'a',      
+            "date" : "errorwithdatehere"
+        }   
             

@@ -19,7 +19,7 @@ function App() {
             </Routes>
         </Router>
       <div><InputData></InputData></div>
-    </div>
+    </div>  
   );
 }
 

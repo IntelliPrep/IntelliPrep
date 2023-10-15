@@ -1,11 +1,10 @@
-<<<<<<< Updated upstream
 import json
 from datetime import date, timedelta, datetime, time
 
 def hi(inputString):
     return {
         "name": inputString,      
-        "date" : date.today()
+        "date" : "date.today()"
     }
 
 # declare variables outside of scope
