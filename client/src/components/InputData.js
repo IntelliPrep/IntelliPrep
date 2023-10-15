@@ -37,8 +37,8 @@ const InputData = () => {
         }
     }
     function createEvent(newSummary, eventStartTime, eventEndTime) {
-        const calendarID = "425283682828-qn5idtnkss94e5hv94abuks7et6r1q7e.apps.googleusercontent.com";
-        const apiKey = "AIzaSyDDeY3WO3s7EbWvL96YS5t2lVG3i4e4N7I";
+        const calendarID = "insert_key";
+        const apiKey = "api_key";
         //console.log(eventStartTime);
         eventStartTime = new Date(eventStartTime)
         eventEndTime = new Date(eventEndTime)
@@ -63,14 +63,14 @@ const InputData = () => {
               ],
             },
         };
-        addHelper('samadahmed30044@gmail.com', event);
+        addHelper('insert_email', event);
 
         
 
 
     }
     const addHelper = (calendarID, event) => {
-        const accessToken = "ya29.a0AfB_byD8D1U4mRSbo6XFuTgfGiaGHR86Et5x_NM7icumn7smSbvdnspczAY-ZID5lzM7Q1VbwRVCSYvDoO1taGYCzdXd81wpJO629RVOn4miTTrKb9JkPZiUerJelZcIjK5c9zVWxZjj9kL4yTLr0ziZBdzQT5r_BtXGaCgYKASsSARMSFQGOcNnCKofx4xsLepakDq20J5nLNA0171";
+        const accessToken = "insert_key";
         function initiate() {
           gapi.client
             .request({
