@@ -10,7 +10,7 @@ const ViewSchedule = () => {
         <div className="calendar">
             <h1 id= "h1">View Schedule Below!</h1>
             
-            <iframe src="https://embed.styledcalendar.com/#17fZdj7DPjviESh5Eb2X" width='1000' height='800' title="Styled Calendar" style={{'border-width': 0}} class="styled-calendar-container" sdata-cy="calendar-embed-iframe"></iframe>
+            <iframe src="https://embed.styledcalendar.com/#17fZdj7DPjviESh5Eb2X" width='1000' height='800' title="Styled Calendar" style={{'borderWidth': 0}} className="styled-calendar-container" sdata-cy="calendar-embed-iframe"></iframe>
             <script async type="module" src="https://embed.styledcalendar.com/assets/parent-window.js"></script>
 
         </div>
