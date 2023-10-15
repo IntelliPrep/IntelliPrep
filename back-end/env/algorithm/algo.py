@@ -114,7 +114,7 @@ def study(times_studied, topic_priority, amt_time, start, day):
             amt_time = 0
             end_time += timedelta(minutes=study_time)
         
-        print(f"{studied_topic} for {study_time} minutes and take a break for {break_time} minutes at {current_time} and end on {end_time} on {day}")
+        # print(f"{studied_topic} for {study_time} minutes and take a break for {break_time} minutes at {current_time} and end on {end_time} on {day}")
         the_array = [studied_topic, str(day) + " " + str(current_time), str(day) + " " + str(end_time)]
         return_arr.append(the_array)
         
