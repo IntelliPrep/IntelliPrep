@@ -1,5 +1,6 @@
 import React from "react";
 import "./Create.css"
+import InputData from '../components/InputData.js';
  
 const Create = () => {
     return (
@@ -7,6 +8,7 @@ const Create = () => {
             <h1 id = "h1">
                 Create a Schedule
             </h1>
+            <InputData></InputData>
         </div>
     );
 };
