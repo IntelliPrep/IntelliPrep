@@ -30,6 +30,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: linear-gradient(45deg, #aab5ee 0%, #ddfeff 100%);
+  background-attachment: fixed;
   
 }
 
