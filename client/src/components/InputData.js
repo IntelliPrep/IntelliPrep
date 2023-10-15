@@ -44,11 +44,6 @@ const InputData = () => {
 
     }
 
-    function increment() {
-        var value = isNaN(value) ? 0 : value;
-        value++;
-        /* document.getElementById('number').value = value; */
-    }
 
     return (
         <>
@@ -71,11 +66,12 @@ const InputData = () => {
                         return (
                             <div key={index}>
                                 <fieldset>
-                                <legend><span class="number"><var>value</var></span> Test Information</legend>
+                                <legend><span class="number"><var>{index+1}</var></span> Test Information</legend>
                                 
                                 <label for="name">Class Name:</label>
                                 <input
                                 name='name'
+                                type="name"
                                 id='name'
                                 placeholder="className"
                                 value={input.name}
@@ -96,6 +92,7 @@ const InputData = () => {
                                 <input
                                 name='topics'
                                 id='topics'
+                                type="topics"
                                 placeholder="Topic List"
                                 value={input.topics}
                                 onChange = {event => handleFormChange(index, event)}
@@ -104,6 +101,7 @@ const InputData = () => {
                                 <label for="priorities">Priorities:</label>
                                 <input
                                 name='priorities'
+                                type="priorities"
                                 id='priorities'
                                 placeholder="Priority List"
                                 value={input.priorities}
