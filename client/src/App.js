@@ -1,5 +1,5 @@
 import './App.css';
-import InputData from './components/InputData.js';
+
 import Header from './components/Header.js';
 import Create from './pages/Create.js';
 import ViewSchedule from './pages/ViewSchedule.js';
@@ -18,7 +18,7 @@ function App() {
                 <Route path='/viewschedule' element={<ViewSchedule />} />
             </Routes>
         </Router>
-      <div><InputData></InputData></div>
+      <div></div>
     </div>  
   );
 }
