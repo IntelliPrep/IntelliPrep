@@ -144,5 +144,10 @@ def create_schedule(test_array, weekday_list, weekend_list, today):
         this_day += timedelta(days=1)
         arr.append(create_task(test_array, weekday_list, weekend_list, this_day))
     
+<<<<<<< Updated upstream
     print(arr)
     return arr
+=======
+    
+    return final_arr
+>>>>>>> Stashed changes

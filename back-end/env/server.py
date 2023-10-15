@@ -15,12 +15,16 @@ def receive_data():
         data = request.json[0]
         weekdayTime = request.json[1]
         weekendTime = request.json[2]
-        print(data)
         for x in range(len(data)):
             data[x]['topics'] = data[x]['topics'].split(',')
             data[x]['priorities'] = data[x]['priorities'].split(',')
             if data[x]['name'] == '':
                 data.remove(data[x])
-    return algo.create_schedule(data, weekdayTime, weekendTime, date.today())
+    returnInput = algo.create_schedule(data, weekdayTime, weekendTime, date.today())
+    
+    print("PRINTING DATA!")
+    for x in returnInput:
+        print(x)
+    return returnInput
         
 
