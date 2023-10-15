@@ -73,7 +73,7 @@ const InputData = () => {
                                 name='name'
                                 type="name"
                                 id='name'
-                                placeholder="className"
+                                placeholder="Class Name"
                                 value={input.name}
                                 onChange = {event => handleFormChange(index, event)}
                                 />

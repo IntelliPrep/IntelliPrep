@@ -41,6 +41,7 @@ body {
 
 .logoWrapper {
   display: flex;
+  padding-left: 40px;
 
   .stylish {
     
@@ -62,9 +63,14 @@ body {
   display: flex;
   list-style-type: none;
   margin-right: 90px;
+  width: 55%;
+  text-decoration: none;
+  text-align: center;
+  float: left;
 
   li {
     opacity: 1;
+    
     list-style-type: none;
     color: white;
     text-decoration: none;
