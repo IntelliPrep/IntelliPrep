@@ -45,7 +45,6 @@ const InputData = () => {
             <div className='name'>
                 <label htmlFor="testname">Test Name:</label>
                 <input type="text" value={sendData} onChange={(e) => setSendData(e.target.value)} name="testname"/>
-                <button onClick={getProfileData}>Click me</button>
             </div>
             {profileData && <div>
                     <p>Profile name: {profileData.profile_name}</p>
@@ -97,7 +96,8 @@ const InputData = () => {
             <input type="time" name="weekend2" onChange={(e) => setWeekend2(e.target.value )}/> <br></br>
             <p> Weekdays:</p>
             <input type="time" name="weekday1" onChange={(e) => setWeekday1(e.target.value)}/>
-            <input type="time" name="weekday2" onChange={(e) => setWeekday2(e.target.value )}/>
+            <input type="time" name="weekday2" onChange={(e) => setWeekday2(e.target.value )}/><br></br>
+            <button onClick={getProfileData}>Click me</button>
 
         </>
 
