@@ -18,7 +18,6 @@ function App() {
                 <Route path='/viewschedule' element={<ViewSchedule />} />
             </Routes>
         </Router>
-      <div></div>
     </div>  
   );
 }
