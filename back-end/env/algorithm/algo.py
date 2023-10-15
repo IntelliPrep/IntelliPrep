@@ -130,7 +130,6 @@ def create_schedule(test_array, weekday_list, weekend_list, today):
     has_tests = True
     this_day = today
     final_arr = []
-    # one_day = timedelta(days=1), try to not make person cram on last day??
     
     while has_tests:
         for test in test_array:
@@ -141,10 +140,10 @@ def create_schedule(test_array, weekday_list, weekend_list, today):
             has_tests = False
             break
 
-        this_day += timedelta(days=1)
         arr = create_task(test_array, weekday_list, weekend_list, this_day)
+        this_day += timedelta(days=1)
         
-        for i in arr:
+    for i in arr:
             for j in i:
                 final_arr.append(j)
     
