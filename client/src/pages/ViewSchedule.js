@@ -8,10 +8,8 @@ const ViewSchedule = () => {
 
     return (
         <div className="calendar">
-            <h1 id= "h1">View Schedule Below!</h1>
-            
-            <iframe src="https://embed.styledcalendar.com/#17fZdj7DPjviESh5Eb2X" width='1000' height='800' title="Styled Calendar" style={{'borderWidth': 0}} className="styled-calendar-container" sdata-cy="calendar-embed-iframe"></iframe>
-            <script async type="module" src="https://embed.styledcalendar.com/assets/parent-window.js"></script>
+            <iframe src="https://embed.styledcalendar.com/#9hnBWcEFwIu8guOioQ84" width="1000" height="800" title="Styled Calendar" class="styled-calendar-container"  data-cy="calendar-embed-iframe" id = "calen"></iframe>
+            <script async type="module" src="https://embed.styledcalendar.com/assets/parent-window.js"></script> 
 
         </div>
     );

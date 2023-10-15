@@ -59,7 +59,7 @@ const InputData = () => {
        
         <div class="row">
     <div class="col-md-12">
-        <h1> Create Schedule </h1>
+        <h1 id="createschedule"> Create Schedule </h1>
             <div className="app">
                 <form>
                     {inputFields.map((input, index) => {

@@ -15,8 +15,8 @@ const Header = () => {
                     <span className="logo">Prep</span>
                 </div>
             <ul className="navigation">
-                <li className="parent"><a className="link" href="/create">Create Schedule</a></li>
-                <li className="parent"><a className="link" href="/viewschedule">View Schedule</a></li>
+                <div id="addpadding"><li className="parent"><a style={{'text-decoration': "none", "color": "black"}} className="link" href="/create">Create Schedule</a></li></div>
+                <div id="addpadding"><li className="parent"><a style={{'text-decoration': "none", "color": "black"}} className="link" href="/viewschedule">View Schedule</a></li></div>
             </ul>
             </nav>
             {/* <nav>
