@@ -18,6 +18,12 @@ const InputData = () => {
 
     const [sendData, setSendData] = useState('');
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+
+    
+    
+>>>>>>> Stashed changes
 =======
 
     
@@ -32,8 +38,11 @@ const InputData = () => {
             console.log(response.data);
             for(let i = 0; i < response.data.length; i++) {
                 createEvent(response.data[i][0], response.data[i][1], response.data[i][2]);
+<<<<<<< Updated upstream
                 //console.log(response.data[i][0], response.data[i][1], response.data[i][2]);
                 //console.log('\n')
+=======
+>>>>>>> Stashed changes
             }
         } catch (error) {   
             console.error(error.message);
@@ -73,7 +82,11 @@ const InputData = () => {
 
     }
     const addHelper = (calendarID, event) => {
+<<<<<<< Updated upstream
         const accessToken = "ya29.a0AfB_byCgnzP8ZpcJt9luQOHpeiR2_L6BWi-6HlpdIxyJ4fiL9bvDKyDbQYjB6Um6nxteHROjyPKAmg5UIkLxHvjroHWsRBaOtTa8YLDywz6lPkltAjsWX3jrxcl-7GqXT-YeqqBbahwHo7_zs0Df0LP9PaSXJKgUYVMoaCgYKAZoSARMSFQGOcNnC19w7GzvrZuvmQSKjcxK3WA0171";
+=======
+        const accessToken = "ya29.a0AfB_byD8D1U4mRSbo6XFuTgfGiaGHR86Et5x_NM7icumn7smSbvdnspczAY-ZID5lzM7Q1VbwRVCSYvDoO1taGYCzdXd81wpJO629RVOn4miTTrKb9JkPZiUerJelZcIjK5c9zVWxZjj9kL4yTLr0ziZBdzQT5r_BtXGaCgYKASsSARMSFQGOcNnCKofx4xsLepakDq20J5nLNA0171";
+>>>>>>> Stashed changes
         function initiate() {
           gapi.client
             .request({
