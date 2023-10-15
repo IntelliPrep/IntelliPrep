@@ -8,14 +8,6 @@ from algorithm import algo
 api = Flask(__name__)
 CORS(api)
 
-counter = 0
-@api.route('/algorithm')
-def my_profile():
-    global counter
-    response_body = algo.hi(counter)
-    counter += 1
-    return response_body
-
 @api.route('/algorithmSend', methods=['POST'])
 def receive_data():
     if request.method == "POST":

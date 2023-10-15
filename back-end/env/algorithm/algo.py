@@ -1,16 +1,12 @@
 import json
-from datetime import date, timedelta, datetime, time
-
-def hi(inputString):
-    return {
-        "name": inputString,      
-        "date" : "date.today()"
-    }
+from datetime import date, timedelta, datetime
+import numpy
 
 # declare variables outside of scope
 topic_priority = {}
 times_studied = {}
 days_left_array = []
+return_study_array = []
     
 def create_task(test_array, weekday_list, weekend_list, day):
     
@@ -35,7 +31,7 @@ def create_task(test_array, weekday_list, weekend_list, day):
             elif test.get("priorities")[index] == "Low":
                 topic_number = 3 + (days_left / max_days_left)
             
-            topic_name = "{} / {}".format(test.get("name"), topic)
+            topic_name = "Study {} for {}".format(topic, test.get("name"))
             topic_priority[topic_name] = topic_number
             times_studied[topic_name] = 0
 
@@ -45,9 +41,11 @@ def create_task(test_array, weekday_list, weekend_list, day):
     
     # loop through study depending if it's the weekend or weekday
     if this_day.weekday() >= 5:
-        study(times_studied, topic_priority, amt_time_weekend, weekend_list[0], this_day)
+        return_study_array.append(study(times_studied, topic_priority, amt_time_weekend, weekend_list[0], this_day))
     else:
-        study(times_studied, topic_priority, amt_time_weekday, weekday_list[0], this_day)
+        return_study_array.append(study(times_studied, topic_priority, amt_time_weekday, weekday_list[0], this_day))
+    
+    return return_study_array
 
 
 # calculates difference in time in minutes
@@ -77,20 +75,19 @@ def convert_time(time):
     datetime_object = datetime.strptime(time, time_format).time()
     return datetime_object
 
-def convert_deltatime(deltatime):
-    time_format = '%H:%M:%S'
-    datetime_object = datetime.strptime(deltatime, time_format).time()
-    return datetime_object
-
 # study action, prints out stuff
 def study(times_studied, topic_priority, amt_time, start, day):
     # determines which topic to study based on priority number and number of times studied
     ## may need to fix this, right now it's not random if the number is the same
-    current_time = start
+    current_time = convert_time(start)
+    current_time = datetime.combine(date.min, current_time) - datetime.min
+    end_time = convert_time(start)
+    end_time = datetime.combine(date.min, end_time) - datetime.min
+    return_arr = []
     
     while amt_time > 0:
-        if type(current_time) != str:
-            current_time = current_time.strftime('%H:%M')
+        # if type(current_time) != str:
+            # current_time = current_time.strftime('%H:%M')
         
         if (topic_check(times_studied) != None):
             studied_topic = topic_check(times_studied)
@@ -105,27 +102,34 @@ def study(times_studied, topic_priority, amt_time, start, day):
             study_time = 45
             break_time = 15
             amt_time -= 60
-            current_time = str(1 + int(current_time.partition(":")[0])) + ":" + current_time.partition(":")[2] # (convert_time(current_time) + convert_deltatime(str(timedelta(hours=1)))).time()
+            end_time += timedelta(hours=1)
         elif amt_time > 45:
             study_time = 45
             break_time = amt_time - 45
             amt_time = 0
-            current_time = "NOT FINISHED"
-            
+            end_time += timedelta(minutes=study_time + break_time)
         else:
             study_time = amt_time
             break_time = 0
             amt_time = 0
-            current_time = "NOT FINISHED"
+            end_time += timedelta(minutes=study_time)
         
-        print(f"Study {studied_topic} for {study_time} minutes and take a break for {break_time} minutes at {current_time} on {day}")
+        print(f"{studied_topic} for {study_time} minutes and take a break for {break_time} minutes at {current_time} and end on {end_time} on {day}")
+        the_array = [studied_topic, str(day) + " " + str(current_time), str(day) + " " + str(end_time)]
+        return_arr.append(the_array)
+        
+        current_time = end_time
+        
         topic_priority[studied_topic] -= 1
         times_studied[studied_topic] += 1
+        
+    return return_arr
         
 # main function that calls the create_task function
 def create_schedule(test_array, weekday_list, weekend_list, today):
     has_tests = True
     this_day = today
+    arr = []
     # one_day = timedelta(days=1), try to not make person cram on last day??
     
     while has_tests:
@@ -138,4 +142,7 @@ def create_schedule(test_array, weekday_list, weekend_list, today):
             break
 
         this_day += timedelta(days=1)
-        create_task(test_array, weekday_list, weekend_list, this_day)
+        arr.append(create_task(test_array, weekday_list, weekend_list, this_day))
+    
+    print(arr)
+    return arr
