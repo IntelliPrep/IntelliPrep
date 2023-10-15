@@ -17,8 +17,7 @@ const InputData = () => {
 
 
     const [sendData, setSendData] = useState('');
-    let number_val = 1;
-
+    var value;
 
     async function getScheduleData() {
         try {
@@ -46,7 +45,9 @@ const InputData = () => {
     }
 
     function increment() {
-        number_val = number_val + 1;
+        var value = isNaN(value) ? 0 : value;
+        value++;
+        /* document.getElementById('number').value = value; */
     }
 
     return (
@@ -70,7 +71,7 @@ const InputData = () => {
                         return (
                             <div key={index}>
                                 <fieldset>
-                                <legend><span class="number">{number_val}</span> Test Information</legend>
+                                <legend><span class="number"><var>value</var></span> Test Information</legend>
                                 
                                 <label for="name">Class Name:</label>
                                 <input
@@ -115,11 +116,13 @@ const InputData = () => {
                         ) 
                 })}
                 </form>
+            
             </div>
             </div>
-            </div>
+             
+            
             <field>
-                <button onclick = "increment()" onClick={addField} > Add Another Test </button> <br></br>
+                <button onClick = {addField}> Add Another Test </button> <br></br>
                 <h1>Please input what times you are available! </h1>
                 <label for="weekend">Weekend:</label>
                 <input type="time" name="weekend1" id="weekend" onChange={(e) => setWeekend1(e.target.value)}/>
@@ -129,6 +132,8 @@ const InputData = () => {
                 <input type="time" name="weekday2" id = "weekday" onChange={(e) => setWeekday2(e.target.value )}/><br></br>
                 <button onClick={getScheduleData}>Click me</button>
             </field>
+
+            </div>
             
 
         </html>
