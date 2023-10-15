@@ -122,6 +122,7 @@ def study(times_studied, topic_priority, amt_time, start, day):
         
         topic_priority[studied_topic] -= 1
         times_studied[studied_topic] += 1
+        print(times_studied[studied_topic])
         
     return return_arr
         
