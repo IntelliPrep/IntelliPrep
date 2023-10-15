@@ -33,13 +33,14 @@ def create_task(test_array, weekday_list, weekend_list, day):
             
             topic_name = "Study {} for {}".format(topic, test.get("name"))
             topic_priority[topic_name] = topic_number
-            times_studied[topic_name] = 0
+            if topic_name not in list(times_studied.keys()):
+                times_studied[topic_name] = 0
 
     # calculates time allotted on weekdays and weekends
     amt_time_weekday = calculate_time(weekday_list[0], weekday_list[1])
     amt_time_weekend = calculate_time(weekend_list[0], weekday_list[1])
     
-    # loop through study depending if it's the weekend or weekday
+    # study depending if it's the weekend or weekday
     if this_day.weekday() >= 5:
         return_study_array.append(study(times_studied, topic_priority, amt_time_weekend, weekend_list[0], this_day))
     else:
@@ -57,11 +58,10 @@ def calculate_time(start_time, end_time):
 
 # checks if a topic needs to be studied (forcefully)
 def topic_check(times_studied):
-    if max(list(times_studied.values())) - max(list(times_studied.values())) > 5:
-        minimum = min(times_studied.values())
-        for index, values in enumerate(times_studied.values()):
-            if times_studied.values()[index] == minimum:
-                return times_studied.keys()[times_studied.values().index(index)]
+    if max(list(times_studied.values())) - min(list(times_studied.values())) > 3:
+        min_key = min(times_studied, key=times_studied.get)
+        return min_key
+        
     else:
         return
     
@@ -86,18 +86,13 @@ def study(times_studied, topic_priority, amt_time, start, day):
     return_arr = []
     
     while amt_time > 0:
-        # if type(current_time) != str:
-            # current_time = current_time.strftime('%H:%M')
         
         if (topic_check(times_studied) != None):
             studied_topic = topic_check(times_studied)
         else:
-            maximum = max(list(topic_priority.values()))
-            for index, values in enumerate(topic_priority.values()):
-                if list(topic_priority.values())[index] == maximum:
-                    studied_topic = list(topic_priority.keys())[list(topic_priority.values()).index(maximum)]
-        
-        # different print statements depending on time
+            studied_topic = max(topic_priority, key=topic_priority.get)
+            
+        # different statements depending on time
         if amt_time >= 60:
             study_time = 45
             break_time = 15
