@@ -1,5 +1,5 @@
 from algorithm import algo
-from datetime import date, datetime
+from datetime import date
 
 test1 = {
   "name": "1554",

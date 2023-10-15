@@ -24,11 +24,11 @@ def create_task(test_array, weekday_list, weekend_list, day):
 
         # updates the topic priority dictionary with key "<Class name> / <Topic Name>" and value topic value
         for index, topic in enumerate(list(test.get("topics"))):
-            if test.get("priorities")[index] == "High":
+            if test.get("priorities")[index].lower() == "high":
                 topic_number =  8 + (days_left / max_days_left)
-            elif test.get("priorities")[index] == "Medium":
+            elif test.get("priorities")[index].lower() == "medium":
                 topic_number = 5 + (days_left / max_days_left)
-            elif test.get("priorities")[index] == "Low":
+            elif test.get("priorities")[index].lower() == "low":
                 topic_number = 3 + (days_left / max_days_left)
             
             topic_name = "Study {} for {}".format(topic, test.get("name"))
@@ -129,7 +129,7 @@ def study(times_studied, topic_priority, amt_time, start, day):
 def create_schedule(test_array, weekday_list, weekend_list, today):
     has_tests = True
     this_day = today
-    arr = []
+    final_arr = []
     # one_day = timedelta(days=1), try to not make person cram on last day??
     
     while has_tests:
@@ -142,7 +142,10 @@ def create_schedule(test_array, weekday_list, weekend_list, today):
             break
 
         this_day += timedelta(days=1)
-        arr.append(create_task(test_array, weekday_list, weekend_list, this_day))
+        arr = create_task(test_array, weekday_list, weekend_list, this_day)
+        
+        for i in arr:
+            for j in i:
+                final_arr.append(j)
     
-    print(arr)
-    return arr
+    return final_arr
