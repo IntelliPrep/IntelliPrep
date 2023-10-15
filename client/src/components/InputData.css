@@ -29,7 +29,7 @@
   input[type="priorities"],
   input[type="weekday"],
   input[type="weekend"],
-  input[type='']
+  input[type='time'],
   textarea,
   select {
     background: rgba(255,255,255,0.1);
