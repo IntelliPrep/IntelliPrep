@@ -20,8 +20,10 @@ def my_profile():
 def receive_data():
     if request.method == "POST":
         data = request.json
-        received_data = data.get('data')
-        print(received_data, flush=True)
-        return algo.hi(received_data)
+        data = data.get('data')
+        print(type(data), flush=True)
+        classname = data[0]
+        testdate = data[1]
+        return algo.hi(classname, testdate)
         
             
