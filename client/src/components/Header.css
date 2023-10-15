@@ -22,7 +22,9 @@ body {
   }
   
 .navigationWrapper {
-  position: relative;
+  position: absolute; /* KRISH ADDED! */
+  left: 480px;
+  top: 40px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -35,24 +37,31 @@ body {
   overflow: hidden;
   width: 750px;
   font-size: 25px;
+  border-radius: 10px;
 
 .logoWrapper {
   display: flex;
 
   .stylish {
-    font-weight: bold;
+    
   }
 }
 .logo {
   padding-left: 4px;
   color: #aab5ee;
-  font-weight: bold;
+  
+}
+
+.addpadding {
+  padding: 10px;
+  margin: 10px;
 }
   
 
 .navigation {
   display: flex;
   list-style-type: none;
+  margin-right: 90px;
 
   li {
     opacity: 1;
@@ -82,6 +91,7 @@ body {
 
         :visited {
           text-decoration:none !important;
+          color: black;
         }
         
 
