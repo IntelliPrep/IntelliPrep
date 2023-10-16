@@ -4,7 +4,6 @@ import axios from "axios"
 import {  } from "react-async"
 import { gapi, } from "gapi-script"
 
-
 const InputData = () => {
 
     const [weekend1, setWeekend1] = useState('');
@@ -18,10 +17,6 @@ const InputData = () => {
 
     const [sendData, setSendData] = useState('');
 
-    
-    
-
-
     async function getScheduleData() {
 
         try {
@@ -29,21 +24,16 @@ const InputData = () => {
             console.log(response.data);
             for(let i = 0; i < response.data.length; i++) {
                 createEvent(response.data[i][0], response.data[i][1], response.data[i][2]);
-                //console.log(response.data[i][0], response.data[i][1], response.data[i][2]);
-                //console.log('\n')
             }
         } catch (error) {   
             console.error(error.message);
         }
     }
     function createEvent(newSummary, eventStartTime, eventEndTime) {
-        const calendarID = "insert_key";
-        const apiKey = "api_key";
-        //console.log(eventStartTime);
+        const calendarID = "425283682828-qn5idtnkss94e5hv94abuks7et6r1q7e.apps.googleusercontent.com";
+        const apiKey = "AIzaSyDDeY3WO3s7EbWvL96YS5t2lVG3i4e4N7I";
         eventStartTime = new Date(eventStartTime)
         eventEndTime = new Date(eventEndTime)
-        //console.log(eventStartTime);
-
 
         var event = {
             summary: newSummary,
@@ -63,14 +53,11 @@ const InputData = () => {
               ],
             },
         };
-        addHelper('insert_email', event);
-
-        
-
+        addHelper('samadahmed30044@gmail.com', event);
 
     }
     const addHelper = (calendarID, event) => {
-        const accessToken = "insert_key";
+        const accessToken = "ya29.a0AfB_byABQwgKWohp8t8cO-I8R4HO5kp79TPK0dezr0NSSFDJ6orH8rAR0hX_Egme1f9JSM1MysEgfjC9RGyND24-CHGPv21eGkzD5v7STtmZzByrNu67b8E0wqSZWeGmTG9-6zMLIxygIGE-mjDpUHzNVhio4Dw2LiqAaCgYKAVgSARMSFQGOcNnCMD_xtB8JBy-sB2EFuWvA3w0171";
         function initiate() {
           gapi.client
             .request({
@@ -203,6 +190,8 @@ const InputData = () => {
             
     );
 }
+
+// elaine
 
 export default InputData
 
