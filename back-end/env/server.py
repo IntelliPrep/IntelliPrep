@@ -5,7 +5,6 @@ import sys
 from datetime import date
 
 from algorithm import algo
-# added a random thing! test
 
 api = Flask(__name__)
 CORS(api)
