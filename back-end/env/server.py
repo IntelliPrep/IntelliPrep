@@ -5,7 +5,7 @@ import sys
 from datetime import date
 
 from algorithm import algo
-# i added this thing back hahahaha
+
 api = Flask(__name__)
 CORS(api)
 
